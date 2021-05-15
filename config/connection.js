@@ -1,3 +1,6 @@
+// fiest install mongodb   """ npm install mongodb """
+
+
 const mongoClient = require('mongodb').MongoClient;
 const state={
     db:null
@@ -12,9 +15,9 @@ const dbname = 'mobilezone';
 mongoClient.connect(url,(err,data)=>{
     if (err) return done(err)
     state.db=data.db(dbname)
-  
+    done()
 })
-done()
+
 }
 //for availabilty
 
@@ -30,7 +33,14 @@ module.exports.get=function(){
 
 var db=require('./config/connection');
 
-db.connect()
+db.connect((err)=>{
+    if(err){
+        console.log("mongodb connection feild"+ err);
+    }
+    else{
+        console.log("mongodb connection successfully");
+    }
+})
 
 
 
