@@ -21,3 +21,17 @@ done()
 module.exports.get=function(){
     return state.db
 }
+
+// inthe case when use the express then 
+// goto app.js and require the file from here
+// then call the function
+
+// example
+
+var db=require('./config/connection');
+
+db.connect()
+
+
+
+// videofrom crossroads webdevelopment challenge part 17 ,minitus: ~5:00
